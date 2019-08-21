@@ -1,0 +1,45 @@
+@import "../../App.scss";
+.movie-wrapper {
+  .movie-image {
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 7px 13px 20px 0px #ddd;
+    position: relative;
+  }
+  .movie-rating {
+    position: absolute;
+    left: 0px;
+    bottom: 2px;
+    width: 100%;
+    .round-rating {
+      font-size: 13px;
+      font-family: $main-font;
+      font-weight: 600;
+      border-radius: 70px;
+      width: 33px;
+      height: 20px;
+    }
+    .view-review {
+      border: 1px solid #fff;
+      width: 25px;
+      height: 23px;
+      border-radius: 50%;
+      padding-left: 4px;
+      font-size: 13px;
+    }
+  }
+  .movie-name {
+      .movie{
+        font-size: 13px;
+        font-family: $main-font;
+        font-weight: 600;
+      }
+      .movie-data{
+        font-size: 11px;
+        font-family: $main-font;
+        font-weight: bold;
+        color: $font-gray;
+
+      }
+  }
+}

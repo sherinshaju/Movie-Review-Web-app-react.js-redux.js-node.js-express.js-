@@ -1,0 +1,37 @@
+@import "../../App.scss";
+.font-heading {
+  font-family: $sub-font;
+}
+.propular-card {
+  .card {
+    border: 1px solid rgba(0, 0, 0, 0.07);
+    box-shadow: 0px 1px 4px 3px #f5f5f5;
+    .card-img-right {
+      width: 180px;
+      height: 250px;
+      border-radius: 4px;
+    }
+    .card-body {
+      .movie {
+        font-family: $sub-font;
+        color: $font-gray;
+      }
+      .time {
+        color: $font-gray;
+        font-size: 11px;
+      }
+      h4 {
+        font-family: $sub-font;
+        font-weight: 600;
+      }
+      .compney {
+        font-family: $main-font;
+      }
+      .Read-more {
+        font-family: $main-font;
+        color: $red;
+        font-size: 13px;
+      }
+    }
+  }
+}

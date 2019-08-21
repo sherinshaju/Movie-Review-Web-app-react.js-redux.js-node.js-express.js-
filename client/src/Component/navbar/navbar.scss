@@ -1,0 +1,117 @@
+@import "../../App.scss";
+.navbar {
+  font-family: $main-font;
+  .navbar-nav {
+    align-items: center;
+    width: 100%;
+    justify-content: space-evenly;
+    .nav-item {
+      &:hover {
+        &::after {
+          content: "";
+          width: 98px;
+          height: 4px;
+          background: #1b1b1b;
+          position: absolute;
+          bottom: 9px;
+          z-index: 99;
+        }
+      }
+    }
+  }
+  .search-bar {
+    height: 44px;
+    width: 200px;
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+    padding: 0 0 0 20px;
+    position: relative;
+    background: #fff;
+  }
+  .nightmood {
+    background: $black;
+    border-radius: 3px;
+    height: 40px;
+    min-width: 40px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    justify-content: center;
+    cursor: pointer;
+    &:hover{
+      border-radius: 30px;
+      transition-duration: .5s;
+    }
+  }
+
+  .input {
+    border: none;
+    height: 25px;
+    width: 150px;
+    color: #1b1b1b;
+    font-size: 15px;
+    outline: none;
+    &:not(:placeholder-shown) + .label {
+      font-size: 9px;
+      top: 3px;
+      color: #00c853;
+    }
+    &:focus ~ .label {
+      font-size: 9px;
+      top: 3px;
+      color: $light-blue;
+      transition: all 0.5s ease;
+    }
+  }
+
+  .label {
+    color: #aaaaaa;
+    position: absolute;
+    top: 13px;
+    pointer-events: none;
+    transition: all 0.5s ease;
+  }
+
+  .search-btn {
+    background: $red;
+    border-radius: 20px;
+    height: 40px;
+    min-width: 40px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    justify-content: center;
+    cursor: pointer;
+    right: 2px;
+    position: absolute;
+    transition: all 1s ease;
+    &:hover{
+      border-radius: 8px;
+      transition-duration: .3s;
+    }
+  }
+
+  .icon {
+    display: inline-flex;
+  }
+
+  .icon-18 {
+    width: 18px;
+    height: 18px;
+  }
+
+  .highlight {
+    width: 0px;
+    height: 1px;
+    background: #4279a3;
+    position: absolute;
+    bottom: 8px;
+    transition: all 1s ease;
+  }
+
+  .input:focus ~ .highlight {
+    width: 150px;
+    transition: all 1s ease;
+  }
+}

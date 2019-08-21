@@ -1,0 +1,70 @@
+@import "../../App.scss";
+.News-heading {
+  font-size: 18px;
+  font-weight: 600;
+  color: $red;
+}
+.see-more {
+  background: #fff;
+  color: $font-gray;
+  font-size: 10px;
+  font-family: "Poppins", "sans-serif";
+  border-radius: 9px;
+  box-shadow: 1px 1px 7px 2px #dedede;
+  width: 61px;
+  height: 18px;
+  padding-left: 7px;
+  &:hover{
+    border-radius: 2px;
+    transition-duration: .2s;
+  }
+}
+.card-news {
+  .card {
+    border-radius: 10px;
+    border: none;
+    img {
+      vertical-align: middle;
+      border-style: none;
+      border-radius: 10px;
+    }
+    .card-body {
+      position: absolute;
+      bottom: -75px;
+      left: 39px;
+      background: #fff;
+      border-radius: 8px 0px 0px 8px;
+      box-shadow: 1px 4px 6px 0px #e6e6e6de;
+    }
+    .card-text {
+      font-family: "Poppins", "sans-serif";
+      font-size: 13px;
+      .date-uploaded{
+          color: $font-gray;
+          font-weight: 500;
+      }
+      h5{
+        font-weight: 600; 
+        font-size: 17px;
+      }
+      .content{
+        color: $font-gray;
+      }
+    }
+  }
+}
+.side-news{
+    font-family: "Poppins", "sans-serif";
+      font-size: 13px;
+      .date-uploaded{
+          color: $font-gray;
+          font-weight: 500;
+      }
+    img{
+        border-radius: 7px;
+        box-shadow: 1px 0px 7px 1px #dedbdb;
+    }
+    .card-text {
+        font-weight: 600;
+    }
+}
