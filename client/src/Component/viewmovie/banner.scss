@@ -1,0 +1,28 @@
+@import "../../App.scss";
+
+.view-wrapper {
+  .breadcrumb {
+    background: #fff;
+  }
+  .banner-wrapper {
+    overflow: hidden;
+    background: #bfbfbf26;
+    border-radius: 18px;
+    height: 350px;
+    box-shadow: 1px 0px 7px 1px #dedbdb;
+  }
+  .mainname-wrapper {
+    background: #fff;
+    height: 60px;
+    position: relative;
+    top: -20px;
+    border-radius: 10px;
+    box-shadow: 1px 3px 7px 1px #dedbdb;
+  }
+}
+.text-gray {
+  color: $font-gray;
+}
+.font-600 {
+  font-weight: 600;
+}

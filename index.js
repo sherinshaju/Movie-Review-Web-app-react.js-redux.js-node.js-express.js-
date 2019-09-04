@@ -22,7 +22,7 @@ con.connect(function(err) {
   // });
 
   // var sql =
-  //   "CREATE TABLE movies (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255), cover VARCHAR(255),des VARCHAR(255), rating INT , time VARCHAR(255),image VARCHAR(255))";
+  //   "CREATE TABLE movies (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255), cover VARCHAR(255),des VARCHAR(255), rating INT , time VARCHAR(255),image VARCHAR(255),coverImage VARCHAR(255))";
   // con.query(sql, function(err, result) {
   //   if (err) throw err;
   //   console.log("Table created");

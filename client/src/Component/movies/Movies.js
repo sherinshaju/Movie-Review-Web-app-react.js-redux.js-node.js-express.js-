@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./movies.scss";
 import { connect } from "react-redux";
 import axios from "axios";
+import { withRouter } from "react-router-dom";
 
 class Movies extends Component {
   // componentDidMount =  async() => {
@@ -14,12 +15,16 @@ class Movies extends Component {
     axios(`/api/view/${id}`, {
       method: "post"
     }).then(res => {
-      console.log(res);
-      this.context.router.push("/view");
+      this.props.dispatch({
+        type: "viewMovie",
+        payload: res.data
+      });
+      this.props.history.push("/view");
     });
   };
 
   render() {
+    // console.log(this.props.history);
     return (
       <React.Fragment>
         <div className="row">
@@ -66,4 +71,4 @@ function getmovieData(state) {
   };
 }
 
-export default connect(getmovieData)(Movies);
+export default withRouter(connect(getmovieData)(Movies));
