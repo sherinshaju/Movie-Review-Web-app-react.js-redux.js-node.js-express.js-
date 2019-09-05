@@ -1,0 +1,33 @@
+.comment-wrapper {
+  height: 500px;
+  overflow-y: scroll;
+
+  .message-inner {
+    background: #d13d54;
+    min-height: 30px;
+    width: 500px;
+    border-radius: 32px 37px 40px 0px;
+    padding-top: 10px;
+    padding-bottom: 3px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-bottom: 10px;
+    p {
+      color: #fff;
+      font-size: 14px;
+      word-break: break-all;
+    }
+  }
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

@@ -27,6 +27,13 @@ con.connect(function(err) {
   //   if (err) throw err;
   //   console.log("Table created");
   // });
+
+  // var upcoming =
+  //   "CREATE TABLE upcoming ( id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255), cover VARCHAR(255), time VARCHAR(255),releasedata VARCHAR(255),image VARCHAR(255)) ";
+  // con.query(upcoming, function(err, result) {
+  //   if (err) throw err;
+  //   console.log(result);
+  // });
 });
 
 app.get("/home", function(req, res) {
