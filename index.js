@@ -54,4 +54,12 @@ app.post("/api/view/:id", (req, res) => {
   });
 });
 
+app.get("/upcoming/data", function(req, res) {
+  // res.json("Hello man!");
+  con.query("SELECT * FROM upcoming ", function(err, result) {
+    if (err) throw err;
+    res.json(result);
+  });
+});
+
 app.listen(3001, () => console.log("Port running on"));

@@ -2,7 +2,7 @@ import React from "react";
 import css from "./review.scss";
 
 function Review(props) {
-  console.log(props.viweData);
+  // console.log(props.viweData);
   return (
     <React.Fragment>
       <div className="row">

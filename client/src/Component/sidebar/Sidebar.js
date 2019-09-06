@@ -1,11 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import css from "./sidebar.scss";
 import { useSelector } from "react-redux";
 import StarRatingComponent from "react-star-rating-component";
+import axios from "axios";
 
 function Sidebar() {
+  let [upcoming, setupcoming] = useState([]);
   let movieDate = useSelector(state => state.counterReducer.movies[2]);
 
+  useEffect(() => {
+    const getNewdata = async () => {
+      let res = await axios.get("/upcoming/data");
+      let data = await res.data;
+      setupcoming(data);
+    };
+    getNewdata();
+  }, []);
+
+  console.log(upcoming);
   return (
     <React.Fragment>
       <div className="side-wrapper mt-5 mb-2">
