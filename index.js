@@ -34,6 +34,13 @@ con.connect(function(err) {
   //   if (err) throw err;
   //   console.log(result);
   // });
+
+  // var comment =
+  //   "CREATE TABLE comment ( id INT , name VARCHAR(255), comment VARCHAR(255)) ";
+  // con.query(comment, function(err, result) {
+  //   if (err) throw err;
+  //   console.log(result);
+  // });
 });
 
 app.get("/home", function(req, res) {
@@ -60,6 +67,12 @@ app.get("/upcoming/data", function(req, res) {
     if (err) throw err;
     res.json(result);
   });
+});
+
+app.post("/comment", (req, res) => {
+  con.query(
+    "INSERT INTO comment (id, name, comment) VALUES (value1, value2, value3)"
+  );
 });
 
 app.listen(3001, () => console.log("Port running on"));
