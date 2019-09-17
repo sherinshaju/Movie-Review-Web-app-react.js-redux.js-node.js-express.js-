@@ -29,17 +29,19 @@
     }
   }
   .movie-name {
-      .movie{
-        font-size: 13px;
-        font-family: $main-font;
-        font-weight: 600;
-      }
-      .movie-data{
-        font-size: 11px;
-        font-family: $main-font;
-        font-weight: bold;
-        color: $font-gray;
-
-      }
+    .movie {
+      font-size: 13px;
+      font-family: $main-font;
+      font-weight: 600;
+    }
+    .movie-data {
+      font-size: 11px;
+      font-family: $main-font;
+      font-weight: bold;
+      color: $font-gray;
+    }
   }
+}
+.star {
+  font-size: 10px;
 }

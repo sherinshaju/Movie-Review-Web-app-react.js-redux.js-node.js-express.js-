@@ -3,6 +3,9 @@ import ViewBanner from "./viewmovie/ViewBanner";
 import Sidebar from "./sidebar/Sidebar";
 
 class View extends Component {
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
   render() {
     return (
       <React.Fragment>

@@ -1,6 +1,7 @@
 const initialState = {
   movies: [],
-  viewMovie: []
+  viewMovie: [],
+  upcoming: []
 };
 
 const counter = (state = initialState, action) => {
@@ -14,6 +15,11 @@ const counter = (state = initialState, action) => {
       return {
         ...state,
         viewMovie: action.payload
+      };
+    case "upcomingMovie":
+      return {
+        ...state,
+        upcoming: action.payload
       };
     default:
       return state;

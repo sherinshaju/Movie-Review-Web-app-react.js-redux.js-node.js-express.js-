@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 import Navbar from "./Component/navbar/Navbar";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import View from "./Component/View";
+import PrivateRoute from "./Auth";
 
 class App extends Component {
   componentDidMount = async () => {
@@ -23,7 +24,7 @@ class App extends Component {
         <Router>
           <Navbar />
           <Route path="/" exact component={Home} />
-          <Route path="/view" component={View} />
+          <PrivateRoute path="/view" component={View} />
           <Footer />
         </Router>
       </React.Fragment>

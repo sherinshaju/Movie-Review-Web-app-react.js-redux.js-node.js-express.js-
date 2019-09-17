@@ -46,8 +46,8 @@ class Movies extends Component {
                       >
                         <i className="fas fa-eye text-white" />
                       </span>
-                      <span className="bg-white text-dark px-2 round-rating">
-                        {movies.rating}
+                      <span className="bg-white text-dark px-2 round-rating d-flex justify-content-between align-items-center">
+                        {movies.rating} <span className="star">⭐</span>
                       </span>
                     </div>
                   </div>

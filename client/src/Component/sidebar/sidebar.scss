@@ -14,4 +14,18 @@
   padding: 15px;
   margin-top: 40px;
   height: 400px;
+  .heading {
+    font-weight: 600;
+    color: #4f4c56;
+  }
+  .release {
+    font-size: 12px;
+    font-weight: 600;
+    color: #4f4c56;
+  }
+  .image {
+    border-radius: 10px;
+    box-shadow: 1px 3px 7px 1px #dedbdb;
+    object-fit: cover;
+  }
 }
