@@ -1,6 +1,6 @@
 var express = require("express");
 var app = express();
-
+const path = require("path");
 var mysql = require("mysql");
 
 var con = mysql.createConnection({
@@ -74,5 +74,14 @@ app.post("/comment", (req, res) => {
     "INSERT INTO comment (id, name, comment) VALUES (value1, value2, value3)"
   );
 });
+
+if (process.env.NODE_ENV === "production") {
+  // Set static folder
+  app.use(express.static("client/build"));
+
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+  });
+}
 
 app.listen(3001, () => console.log("Port running on"));
