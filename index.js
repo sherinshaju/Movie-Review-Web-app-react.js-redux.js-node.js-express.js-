@@ -1,6 +1,6 @@
 var express = require("express");
 var app = express();
-const path = require("path");
+
 var mysql = require("mysql");
 
 var con = mysql.createConnection({
@@ -69,19 +69,23 @@ app.get("/upcoming/data", function(req, res) {
   });
 });
 
-app.post("/comment", (req, res) => {
-  con.query(
-    "INSERT INTO comment (id, name, comment) VALUES (value1, value2, value3)"
-  );
+app.post("/comment/addcomment", (req, res) => {
+  console.log(req.body);
+  let data = `INSERT INTO comment(id,name,comment) VALUES (${req.body.id},'${req.body.name}','${req.body.comment}')`;
+  con.query(data, function(err, result) {
+    if (err) throw err;
+    res.json("your comment added");
+  });
 });
 
-if (process.env.NODE_ENV === "production") {
-  // Set static folder
-  app.use(express.static("client/build"));
-
-  app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+app.get("/comment/getcomment/:id", (req, res) => {
+  con.query(`SELECT * FROM comment WHERE id = ${req.params.id}`, function(
+    err,
+    result
+  ) {
+    if (err) throw err;
+    res.json(result);
   });
-}
+});
 
 app.listen(3001, () => console.log("Port running on"));

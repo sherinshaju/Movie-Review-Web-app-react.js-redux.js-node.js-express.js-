@@ -6,7 +6,6 @@ import Review from "../review/Review";
 function ViewBanner() {
   let viweData = useSelector(state => state.counterReducer.viewMovie[0]);
 
-  console.log(viweData);
   return (
     <React.Fragment>
       <div className="view-wrapper py-3">

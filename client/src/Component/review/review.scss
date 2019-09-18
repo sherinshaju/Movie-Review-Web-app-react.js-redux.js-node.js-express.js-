@@ -1,21 +1,30 @@
 .comment-wrapper {
-  height: 500px;
+  height: 300px;
   overflow-y: scroll;
+  padding-top: 12px;
+  padding-left: 10px;
 
   .message-inner {
-    background: #d13d54;
+    background: #fff;
     min-height: 30px;
     width: 500px;
-    border-radius: 32px 37px 40px 0px;
+    border-radius: 1px;
     padding-top: 10px;
     padding-bottom: 3px;
     padding-left: 15px;
     padding-right: 15px;
     margin-bottom: 10px;
+    box-shadow: 1px 3px 7px 1px #dedbdb;
+
+    span {
+      font-weight: 600;
+      font-size: 15px;
+    }
     p {
-      color: #fff;
+      color: rgb(88, 113, 167);
       font-size: 14px;
       word-break: break-all;
+      margin-top: 12px;
     }
   }
 }

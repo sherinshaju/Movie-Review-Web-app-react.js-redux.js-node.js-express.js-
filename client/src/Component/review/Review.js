@@ -1,8 +1,73 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import css from "./review.scss";
+import axios from "axios";
+import { useSelector, useDispatch } from "react-redux";
 
 function Review(props) {
-  // console.log(props.viweData);
+  const dispatch = useDispatch();
+
+  let [name, setName] = useState("");
+  let [comment, setComment] = useState("");
+  let [add, addData] = useState("");
+  let commentView = useSelector(state => state.view.comment);
+
+  let handleName = e => {
+    setName(e.target.value);
+  };
+
+  let handleComment = e => {
+    setComment(e.target.value);
+  };
+
+  let handleSubmit = event => {
+    event.preventDefault();
+
+    let data = {
+      id: props.viweData.id,
+      name: name,
+      comment: comment
+    };
+    axios({
+      method: "post",
+      url: "/comment/addcomment",
+      data: data
+    }).then(res => {
+      addData(res.data);
+    });
+    setTimeout(function() {
+      addData("");
+    }, 1000);
+    setName("");
+    setComment("");
+    displayApi();
+  };
+
+  const displayApi = async () => {
+    let res = await axios(`/comment/getcomment/${props.viweData.id}`);
+    let resData = await res.data;
+    dispatch({
+      type: "comment",
+      payload: resData
+    });
+    let scrollBottom = document.getElementById("scrolldiv");
+    scrollBottom.scrollTop = scrollBottom.scrollHeight;
+  };
+
+  useEffect(() => {
+    let getdata = async () => {
+      let res = await axios(`/comment/getcomment/${props.viweData.id}`);
+      let resData = await res.data;
+      // console.log(resData);
+      dispatch({
+        type: "comment",
+        payload: resData
+      });
+      let scrollBottom = document.getElementById("scrolldiv");
+      scrollBottom.scrollTop = scrollBottom.scrollHeight;
+    };
+    getdata();
+  }, [dispatch]);
+
   return (
     <React.Fragment>
       <div className="row">
@@ -24,27 +89,13 @@ function Review(props) {
           </div>
         </div>
         <div className="col-md-12">
-          <div className="comment-wrapper  mt-5">
-            <div className="message-inner">
-              <p>dsfa</p>
-            </div>
-            <div className="message-inner">
-              <p>
-                safdsgafghafhadhadhdhahdhadhfasafdsgafghafhadhadhdhahdhadhfasafdsgafghafhadhadhdhahdhadhfa
-              </p>
-            </div>
-            <div className="message-inner">
-              <p>adggfg</p>
-            </div>
-            <div className="message-inner">
-              <p>sgagaggagf</p>
-            </div>
-            <div className="message-inner">
-              <p>adfhafhfhfhdfdfh</p>
-            </div>
-            <div className="message-inner">
-              <p>dsadfhadhfadhfsfdfa</p>
-            </div>
+          <div className="comment-wrapper  mt-5" id="scrolldiv">
+            {commentView.map((comment, key) => (
+              <div className="message-inner" key={key}>
+                <span>{comment.name}</span>
+                <p>{comment.comment}</p>
+              </div>
+            ))}
           </div>
         </div>
       </div>
@@ -60,27 +111,41 @@ function Review(props) {
               type="text"
               className="form-control"
               placeholder="Your Name"
+              onChange={handleName}
+              value={name}
             />
           </div>
           <div className="form-group">
             <textarea
               className="form-control"
-              id="exampleFormControlTextarea1"
               placeholder="Your Comment"
               rows="3"
+              onChange={handleComment}
+              value={comment}
             ></textarea>
           </div>
-          <div className="form-group form-check">
-            <input
-              type="checkbox"
-              className="form-check-input"
-              id="exampleCheck1"
-            />
-            <label className="form-check-label" htmlFor="exampleCheck1">
-              Check me out
-            </label>
-          </div>
-          <button type="submit" className="btn btn-primary">
+
+          {add.length !== 0 ? (
+            <div
+              className="alert alert-success alert-dismissible fade show"
+              role="alert"
+            >
+              {add}
+              <button
+                type="button"
+                className="close"
+                data-dismiss="alert"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+          ) : null}
+          <button
+            type="submit"
+            className="btn btn-primary"
+            onClick={handleSubmit}
+          >
             Submit
           </button>
         </form>
