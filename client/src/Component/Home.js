@@ -7,6 +7,7 @@ import Topnews from "./topday/Topnews";
 
 class Home extends Component {
   render() {
+    // console.log(this.props.history.location);
     return (
       <React.Fragment>
         <Carousel />

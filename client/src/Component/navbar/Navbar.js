@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import "./navbar.scss";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 
 class Navbar extends Component {
   render() {
+    // console.log(this.props.history.location.pathname);
+    let { history } = this.props;
     return (
       <React.Fragment>
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -23,7 +25,11 @@ class Navbar extends Component {
           </button>
           <div className="collapse navbar-collapse" id="navbarNavDropdown">
             <ul className="navbar-nav">
-              <li className="nav-item active">
+              <li
+                className={`nav-item ${
+                  history.location.pathname === "/" ? "active" : ""
+                }`}
+              >
                 <Link to="/">
                   <span className="nav-link">
                     All Comics <span className="sr-only">(current)</span>
@@ -67,4 +73,4 @@ class Navbar extends Component {
     );
   }
 }
-export default Navbar;
+export default withRouter(Navbar);

@@ -25,6 +25,7 @@ class App extends Component {
           <Navbar />
           <Route path="/" exact component={Home} />
           <PrivateRoute path="/view" component={View} />
+          <Route render={() => <div>Not Found</div>} />
           <Footer />
         </Router>
       </React.Fragment>
